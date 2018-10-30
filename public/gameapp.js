@@ -156,6 +156,14 @@ socket.on('start_game', (data) => {
   document.getElementById('game-wrapper').style.display = 'inline';
   document.getElementById('opponent-id').value = '';
 
+  if (playerNum === 1) {
+    document.getElementById('piece-color').innerHTML = 'BLACK'; 
+    document.getElementById('piece-color').style.color = 'black';
+  } else {
+    document.getElementById('piece-color').innerHTML = 'RED';
+    document.getElementById('piece-color').style.color = 'red';
+  }
+
   turn = playerNum === 1; // PlayerNum 1 (black pieces) play first.
   setTurnInfo();
 
@@ -357,8 +365,10 @@ function testWin() {
 function setTurnInfo() {
   if (turn) {
     document.getElementById('turn').innerHTML = 'Your turn.'
+    document.getElementById('canvas').style.cursor = 'pointer';
   } else {
     document.getElementById('turn').innerHTML = 'Your opponent\'s turn.'
+    document.getElementById('canvas').style.cursor = 'auto';
   }
 }
 
