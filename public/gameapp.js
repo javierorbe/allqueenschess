@@ -152,11 +152,12 @@ socket.on('start_game', (data) => {
 
   ctx.lineWidth = 2;
 
-  turn = playerNum === 1; // PlayerNum 1 (black pieces) play first.
-
   document.getElementById('form-wrapper').style.display = 'none';
   document.getElementById('game-wrapper').style.display = 'inline';
   document.getElementById('opponent-id').value = '';
+
+  turn = playerNum === 1; // PlayerNum 1 (black pieces) play first.
+  setTurnInfo();
 
   playing = true;
 
@@ -184,13 +185,14 @@ socket.on('end_game', (data) => {
 socket.on('board_update', (data) => {
   board = data.board;
   turn = true;
+  setTurnInfo();
 });
 
 socket.on('opponent_disconnected', () => {
   playing = false;
 
-  $('#game-wrapper').css('display', 'none');
-  $('#pin-wrapper').css('display', 'inline');
+  document.getElementById('game-wrapper').style.display = 'none';
+  document.getElementById('form-wrapper').style.display = 'inline';
 
   showModal(
     'Opponent disconnected',
@@ -274,6 +276,7 @@ function movePiece(fromX, fromY, toX, toY) {
   socket.emit('move_piece', {fromX, fromY, toX, toY});
   movements += 1;
   turn = false;
+  setTurnInfo();
 
   selected.i = -1;
   selected.j = -1;
@@ -349,6 +352,14 @@ function testWin() {
   }
 
   return false;
+}
+
+function setTurnInfo() {
+  if (turn) {
+    document.getElementById('turn').innerHTML = 'Your turn.'
+  } else {
+    document.getElementById('turn').innerHTML = 'Your opponent\'s turn.'
+  }
 }
 
 function typeToColor(type) {
