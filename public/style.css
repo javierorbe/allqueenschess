@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #8BC34A;  
+}
+
+#container {
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+}
+
+#title {
+  font-family: 'Lobster', cursive;
+  font-size: 54px;
+  color: #212121;
+  text-shadow: 0px 1px #424242;
+}
+
+#play-form {
+  width: 280px;
+  margin: 0 auto;
+}
+
+#opponent-id {
+  width: 90%;
+  height: 40px;
+
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  text-align: center;
+  border: 2px solid #BDBDBD;
+
+  font-size: 18px;
+  font-weight: bold;
+  color: #212121;
+}
+
+#play-btn {
+  width: 90%;
+  height: 40px;
+
+  background-color: #494949;
+  border: 2px solid #404040;
+  border-radius: 2px;
+
+  color: white;
+  text-shadow: 0 -0.65px #212121;
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition-duration: 0.3s;
+}
+
+#play-btn:hover {
+  background-color: #3D3D3D;
+  border: 2px solid #4D4D4D;
+}
+
+#play-btn-active {
+  border: 2px solid #BDBDBD;
+}
+
+#self-id-wrapper {
+  margin-top: 8px;
+  padding: 8px;
+  font-weight: bold;
+}
+
+#self-id {
+  color: #E91E63;
+  font-size: 18px;
+}
+
+#game-wrapper {
+  display: table;
+}
+
+#main-canvas,
+#goal-canvas {
+  margin: 8px;
+  border: 4px solid black;
+  border-radius: 3px;
+}
+
+#main-canvas {
+  cursor: pointer;
+}
